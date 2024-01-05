@@ -230,7 +230,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return progressDialog.show(msg: "Logging in");
                   }
-                  return SingleChildScrollView(
+                  return SizedBox(
+                    height: 600.h,
+                    width: double.infinity.w,
                     child: ListView.builder(
                       itemCount: snapshot.data?.turf?.length ?? 0,
                       itemExtent: 220.0,
