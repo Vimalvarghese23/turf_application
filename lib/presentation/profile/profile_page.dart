@@ -5,7 +5,7 @@ import 'package:turf_application/Widget/textfield.dart';
 import 'package:turf_application/Widget/user_avathar.dart';
 
 import 'package:turf_application/presentation/favoraite/favoraite_page.dart';
-import 'package:turf_application/presentation/home_screen/home_screen_page.dart';
+import 'package:turf_application/presentation/home_screen/bloc/home_bloc.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -46,6 +46,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void _onProfileTap() {
     print('Profile tapped');
   }
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _mobileNumberController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -109,16 +113,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
           MyTextWidget(
             mytext: 'Name',
             format: FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z]")),
+            controller: _nameController,
           ),
           SizedBox(height: 18.h),
           MyTextWidget(
             mytext: 'Mobile number',
             format: FilteringTextInputFormatter.allow(RegExp(r"[0-9]")),
+            controller: _mobileNumberController,
           ),
           SizedBox(height: 18.h),
           MyTextWidget(
             mytext: 'Email',
             format: FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z0-9@.]")),
+            controller: _emailController,
           ),
           SizedBox(height: 18.h),
           SizedBox(

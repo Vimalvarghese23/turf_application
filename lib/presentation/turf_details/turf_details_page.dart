@@ -6,7 +6,7 @@ import 'package:turf_application/Widget/turf_facility.dart';
 import 'package:turf_application/Widget/turf_time.dart';
 
 class TurfDetailsScreen extends StatefulWidget {
-  const TurfDetailsScreen({super.key});
+  const TurfDetailsScreen({super.key, required String id});
 
   @override
   State<TurfDetailsScreen> createState() => _TurfDetailsScreenState();

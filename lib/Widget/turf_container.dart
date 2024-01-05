@@ -57,7 +57,7 @@ class _TurfContainerState extends State<TurfContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16).r,
+      padding: const EdgeInsets.only(left: 10).r,
       child: InkWell(
         onTap: () {
           setState(() {
@@ -82,7 +82,7 @@ class _TurfContainerState extends State<TurfContainer> {
                   color: Color(0xFFD7D7D7),
                 ),
               ),
-              child: Image.asset(
+              child: Image.network(
                 widget.imagePath,
                 fit: BoxFit.cover,
               ),
@@ -109,26 +109,29 @@ class _TurfContainerState extends State<TurfContainer> {
                     ],
                   ),
                   SizedBox(height: 7.h),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: Colors.blue,
-                        size: 18.sp,
-                      ),
-                      SizedBox(width: 5.w),
-                      Text(
-                        widget.text1,
-                        style: widget.text1Style,
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.location_on,
+                          color: Colors.blue,
+                          size: 18.sp,
+                        ),
+                        SizedBox(width: 1.w),
+                        Text(
+                          widget.text1,
+                          style: widget.text1Style,
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 12.h),
                   Text(
                     widget.text2,
                     style: widget.text2Style,
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 25.h),
                   Row(
                     children: [
                       Icon(

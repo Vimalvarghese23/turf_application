@@ -1,13 +1,15 @@
 class OtpUserRes {
   String? error;
   UserOtp? userOtp;
+  String? success;
 
-  OtpUserRes({this.error, this.userOtp});
+  OtpUserRes({this.error, this.userOtp, this.success});
 
   OtpUserRes.fromJson(Map<String, dynamic> json) {
     error = json['error'];
     userOtp =
         json['userOtp'] != null ? new UserOtp.fromJson(json['userOtp']) : null;
+    success = json['success'];
   }
 
   Map<String, dynamic> toJson() {
@@ -16,6 +18,7 @@ class OtpUserRes {
     if (this.userOtp != null) {
       data['userOtp'] = this.userOtp!.toJson();
     }
+    data['success'] = this.success;
     return data;
   }
 }

@@ -4,7 +4,7 @@ class UserSignUp {
   String? password;
   String? name;
   String? mobileNumber;
-
+  String? avatar;
   String? otp;
 
   UserSignUp(
@@ -13,6 +13,7 @@ class UserSignUp {
       this.password,
       this.name,
       this.mobileNumber,
+      this.avatar,
       this.otp});
 
   UserSignUp.fromJson(Map<String, dynamic> json) {
@@ -21,7 +22,7 @@ class UserSignUp {
     password = json['password'];
     name = json['name'];
     mobileNumber = json['mobileNumber'];
-
+    avatar = json['avatar'];
     otp = json['otp'];
   }
 
@@ -32,7 +33,7 @@ class UserSignUp {
     data['password'] = this.password;
     data['name'] = this.name;
     data['mobileNumber'] = this.mobileNumber;
-
+    data['avatar'] = this.avatar;
     data['otp'] = this.otp;
     return data;
   }

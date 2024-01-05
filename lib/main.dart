@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:turf_application/presentation/welcom/welcome_page.dart';
+import 'package:get/get.dart';
+
+import 'package:provider/provider.dart';
+import 'package:turf_application/domain/entities/responce/user_login_resp.dart';
+import './presentation/welcom/bloc/login_dart_bloc.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => UserLoginRes());
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -23,7 +28,10 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: MyHome(),
+      child: Provider(
+        create: (context) => LoginDartBloc(),
+        child: MyHome(),
+      ),
     );
   }
 }
